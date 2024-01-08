@@ -11,7 +11,7 @@
         }
 ```
 
-**Impact:** The gas costs for raffle entrants will greatly increase as more players enter the raffle. Discouraging  later users from entering, and causing a rush at the start of a raffle to be one of the first entrants in the queue.
+**Impact:** The gas costs for raffle entrants will greatly increase as more players enter the raffle. Discouraging later users from entering, and causing a rush at the start of a raffle to be one of the first entrants in the queue.
 
 An attacker might make the `PuppyRaffle::entrants` array so big, that no one else enters, guarenteeing themselves the win.
 
@@ -62,4 +62,9 @@ Place the following test into `PuppyRaffleTest.t.sol`.
 ```
 </details>
 
-**Recommended Mitigation:**
+**Recommended Mitigation:** There are a few recomendations.
+1. Consider allowing duplicates. Users can make new wallet addresses anyways, so a duplicate check doesn't prevent the same person from entering multiple times, only the same wallet address.
+2. Consider using a mapping to check for duplicates. This would allow constant time lookup of wether a user has already entered.
+
+```
+```
